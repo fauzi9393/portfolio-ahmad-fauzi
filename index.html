@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ahmad Fauzi — Odoo Developer</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      animation: floatPulse 2s infinite ease-in-out;
+      z-index: 9999;
+      transition: transform 0.3s ease;
+    }
+    .whatsapp-float:hover { transform: scale(1.1); }
+
+    @keyframes floatPulse {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    /* ✅ Modal Fix (tidak blur & tidak muncul di awal) */
+    .modal {
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+      z-index: 99999;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .modal.active {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+      display: flex;
+    }
+
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 9999px;
+      padding: 0.5rem;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .nav-btn:hover { background: rgba(0, 0, 0, 0.7); }
+    .nav-prev { left: 15px; }
+    .nav-next { right: 15px; }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-slate-100 font-sans">
+  <!-- 🔹 Navigation -->
+  <nav class="fixed top-0 left-0 right-0 bg-slate-800/80 backdrop-blur-md z-50 p-4 shadow-md">
+    <ul class="flex justify-center space-x-6 text-sm">
+      <li><a href="#about" class="hover:text-emerald-400">Tentang</a></li>
+      <li><a href="#skills" class="hover:text-emerald-400">Keterampilan</a></li>
+      <li><a href="#experience" class="hover:text-emerald-400">Pengalaman</a></li>
+      <li><a href="#projects" class="hover:text-emerald-400">Proyek</a></li>
+      <li><a href="#portfolio" class="hover:text-emerald-400">Portofolio Visual</a></li>
+    </ul>
+  </nav>
+
+  <!-- 🔹 Main Content -->
+  <main class="max-w-5xl mx-auto p-6 pt-24 space-y-12">
+
+    <!-- 👤 About Section -->
+    <section id="about" class="bg-slate-800/60 p-8 rounded-2xl shadow-lg text-center" data-aos="fade-up">
+      <img src="Ahmad_Fauzi.jpeg" alt="Foto Profil Ahmad Fauzi"
+        class="w-32 h-32 mx-auto rounded-full shadow-lg border-4 border-emerald-500 object-cover mb-4" />
+      <h1 class="text-5xl font-bold">Ahmad Fauzi</h1>
+      <p class="text-emerald-400 mt-2 text-lg font-medium">Odoo Developer — ERP Customization & System Integration</p>
+
+      <!-- 🔗 Contact & Social Links -->
+      <div class="flex justify-center gap-4 mt-4 flex-wrap">
+        <a href="mailto:fauzi93.af61@gmail.com" class="flex items-center gap-2 hover:text-emerald-400 transition">
+          <i data-lucide="mail" class="w-5 h-5"></i> Email
+        </a>
+        <a href="https://www.linkedin.com/in/ahmad-fauzi-3492ab17a" target="_blank"
+           class="flex items-center gap-2 hover:text-emerald-400 transition">
+          <i data-lucide="linkedin" class="w-5 h-5"></i> LinkedIn
+        </a>
+        <a href="https://github.com/fauzi9393" target="_blank"
+           class="flex items-center gap-2 hover:text-emerald-400 transition">
+          <i data-lucide="github" class="w-5 h-5"></i> GitHub
+        </a>
+      </div>
+    </section>
+
+    <!-- 🧠 Skills -->
+    <section id="skills" class="bg-slate-800/50 p-6 rounded-2xl shadow-md" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold mb-3 flex items-center gap-2"><i data-lucide="cpu"></i> Keterampilan</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-lg font-semibold text-emerald-400">Bahasa & Framework</h3>
+          <ul class="list-disc ml-6 text-slate-300">
+            <li>Delphi 7 / XE2 / 11.3</li>
+            <li>PHP (CodeIgniter 4)</li>
+            <li>JavaScript, HTML, CSS, jQuery</li>
+            <li>Python (Odoo, QWeb)</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-emerald-400">Database</h3>
+          <ul class="list-disc ml-6 text-slate-300">
+            <li>Firebird</li>
+            <li>SQL Server</li>
+            <li>MySQL</li>
+            <li>PostgreSQL</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🖼️ Portfolio -->
+    <section id="portfolio" class="bg-slate-800/50 p-6 rounded-2xl shadow-md" data-aos="zoom-in">
+      <h2 class="text-2xl font-semibold mb-5 flex items-center gap-2"><i data-lucide="image"></i> Portofolio Visual</h2>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="rounded-xl overflow-hidden shadow-lg hover:scale-105 transform transition cursor-pointer"
+             onclick="openGallery(0)">
+          <img src="img/modul_gms.jpg" class="w-full h-48 object-cover">
+          <div class="p-3 bg-slate-900/70 text-center">PMR_GMS</div>
+        </div>
+        <div class="rounded-xl overflow-hidden shadow-lg hover:scale-105 transform transition cursor-pointer"
+             onclick="openGallery(1)">
+          <img src="img/modul_stocktaking.jpg" class="w-full h-48 object-cover">
+          <div class="p-3 bg-slate-900/70 text-center">PMR Stock Taking</div>
+        </div>
+        <div class="rounded-xl overflow-hidden shadow-lg hover:scale-105 transform transition cursor-pointer"
+             onclick="openGallery(2)">
+          <img src="img/modul_rmis.jpg" class="w-full h-48 object-cover">
+          <div class="p-3 bg-slate-900/70 text-center">PMR RMIS</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="text-center text-slate-500 border-t border-slate-700 pt-6 mt-6 text-sm" data-aos="fade-up">
+      © <span id="yr"></span> Ahmad Fauzi — Odoo Developer • fauzi93.af61@gmail.com
+    </footer>
+  </main>
+
+  <!-- 💬 WhatsApp Floating -->
+  <a href="https://wa.me/6285183132636?text=Halo%20Ahmad%20Fauzi,%20saya%20tertarik%20dengan%20portofolio%20Anda!"
+     class="whatsapp-float" target="_blank" aria-label="Chat via WhatsApp">
+    <i data-lucide="message-circle" class="w-8 h-8"></i>
+  </a>
+
+  <!-- 🪟 Modal Gallery -->
+  <div id="portfolioModal" class="modal">
+    <div class="bg-slate-800 rounded-2xl shadow-2xl max-w-2xl mx-4 relative overflow-hidden">
+      <button onclick="closeModal()" class="absolute top-3 right-3 text-slate-300 hover:text-white">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+      <img id="modalImg" src="" alt="" class="rounded-t-2xl w-full object-cover max-h-[400px]">
+      <button class="nav-btn nav-prev" onclick="prevImage()"><i data-lucide="chevron-left"></i></button>
+      <button class="nav-btn nav-next" onclick="nextImage()"><i data-lucide="chevron-right"></i></button>
+      <div class="p-5">
+        <h3 id="modalTitle" class="text-2xl font-bold text-emerald-400 mb-2"></h3>
+        <p id="modalDesc" class="text-slate-300 text-sm"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🔹 Script -->
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    lucide.createIcons();
+    AOS.init({ duration: 1000, once: true, offset: 100 });
+
+    const galleries = [
+      {
+        title: "PMR_GMS (Graphic Management System)",
+        desc: "Modul Odoo untuk manajemen produksi grafis, jadwal mesin, dan approval QC.",
+        images: ["img/modul_gms.jpg", "img/graphic_plant.jpg", "img/daily_time_sheet.jpg", "img/data_cyl_aktif.jpg", "img/cyl_base_order.jpg", "img/color_mactching.jpg", "img/certifiacate_of_analisis_cyl.jpg"]
+      },
+      {
+        title: "PMR Stock Taking",
+        desc: "Aplikasi stock opname terintegrasi Odoo dengan fitur barcode & analisa selisih.",
+        images: ["img/modul_stocktaking.jpg", "img/stock_taking.jpg"]
+      },
+      {
+        title: "PMR RMIS (Incoming Warehouse)",
+        desc: "Modul penerimaan bahan baku berbasis barcode dan tracking lot.",
+        images: ["img/modul_rmis.jpg", "img/.jpg"]
+      }
+    ];
+
+    let currentGallery = 0;
+    let currentImageIndex = 0;
+    const modal = document.getElementById('portfolioModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+
+    function openGallery(index) {
+      currentGallery = index;
+      currentImageIndex = 0;
+      showImage();
+      modal.classList.add('active');
+    }
+
+    function showImage() {
+      const gallery = galleries[currentGallery];
+      modalImg.src = gallery.images[currentImageIndex];
+      modalTitle.textContent = gallery.title;
+      modalDesc.textContent = gallery.desc;
+    }
+
+    function nextImage() {
+      const gallery = galleries[currentGallery];
+      currentImageIndex = (currentImageIndex + 1) % gallery.images.length;
+      showImage();
+    }
+
+    function prevImage() {
+      const gallery = galleries[currentGallery];
+      currentImageIndex = (currentImageIndex - 1 + gallery.images.length) % gallery.images.length;
+      showImage();
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+    }
+
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+    document.addEventListener('keydown', (e) => {
+      if (modal.classList.contains('active')) {
+        if (e.key === 'ArrowRight') nextImage();
+        if (e.key === 'ArrowLeft') prevImage();
+        if (e.key === 'Escape') closeModal();
+      }
+    });
+  </script>
+</body>
+</html>
