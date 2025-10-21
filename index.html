@@ -15,65 +15,39 @@
 
   <style>
     html { scroll-behavior: smooth; }
-
     /* Floating WhatsApp Button */
     .whatsapp-float {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background-color: #25D366;
-      color: white;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      position: fixed; bottom: 25px; right: 25px;
+      background-color: #25D366; color: white;
+      border-radius: 50%; width: 60px; height: 60px;
+      display: flex; justify-content: center; align-items: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
       animation: floatPulse 2s infinite ease-in-out;
-      z-index: 9999;
-      transition: transform 0.3s ease;
+      z-index: 9999; transition: transform 0.3s ease;
     }
     .whatsapp-float:hover { transform: scale(1.1); }
-
     @keyframes floatPulse {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-5px); }
     }
 
-    /* ✅ Modal Fix (tidak blur & tidak muncul di awal) */
+    /* Modal Gallery */
     .modal {
-      visibility: hidden;
-      opacity: 0;
-      pointer-events: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(8px);
-      z-index: 99999;
-      align-items: center;
-      justify-content: center;
+      visibility: hidden; opacity: 0; pointer-events: none;
+      position: fixed; inset: 0; background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px); z-index: 99999;
+      align-items: center; justify-content: center;
       transition: opacity 0.3s ease, visibility 0.3s ease;
     }
     .modal.active {
-      visibility: visible;
-      opacity: 1;
-      pointer-events: auto;
-      display: flex;
+      visibility: visible; opacity: 1; pointer-events: auto; display: flex;
     }
-
     .nav-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.4);
-      border-radius: 9999px;
-      padding: 0.5rem;
-      color: white;
-      cursor: pointer;
-      transition: background 0.3s;
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.4); border-radius: 9999px;
+      padding: 0.5rem; color: white; cursor: pointer;
     }
-    .nav-btn:hover { background: rgba(0, 0, 0, 0.7); }
+    .nav-btn:hover { background: rgba(0,0,0,0.7); }
     .nav-prev { left: 15px; }
     .nav-next { right: 15px; }
   </style>
@@ -85,8 +59,8 @@
     <ul class="flex justify-center space-x-6 text-sm">
       <li><a href="#about" class="hover:text-emerald-400">Tentang</a></li>
       <li><a href="#skills" class="hover:text-emerald-400">Keterampilan</a></li>
-      <!-- <li><a href="#experience" class="hover:text-emerald-400">Pengalaman</a></li> -->
-      <!-- <li><a href="#projects" class="hover:text-emerald-400">Proyek</a></li> -->
+      <li><a href="#experience" class="hover:text-emerald-400">Pengalaman</a></li>
+      <li><a href="#projects" class="hover:text-emerald-400">Proyek</a></li>
       <li><a href="#portfolio" class="hover:text-emerald-400">Portofolio Visual</a></li>
     </ul>
   </nav>
@@ -94,14 +68,13 @@
   <!-- 🔹 Main Content -->
   <main class="max-w-5xl mx-auto p-6 pt-24 space-y-12">
 
-    <!-- 👤 About Section -->
+    <!-- 👤 About -->
     <section id="about" class="bg-slate-800/60 p-8 rounded-2xl shadow-lg text-center" data-aos="fade-up">
       <img src="Ahmad_Fauzi.jpeg" alt="Foto Profil Ahmad Fauzi"
         class="w-32 h-32 mx-auto rounded-full shadow-lg border-4 border-emerald-500 object-cover mb-4" />
       <h1 class="text-5xl font-bold">Ahmad Fauzi</h1>
       <p class="text-emerald-400 mt-2 text-lg font-medium">Odoo Developer — ERP Customization & System Integration</p>
-
-      <!-- 🔗 Contact & Social Links -->
+     <!-- 🔗 Contact & Social Links -->
       <div class="flex justify-center gap-4 mt-4 flex-wrap">
         <a href="mailto:fauzi93.af61@gmail.com" class="flex items-center gap-2 hover:text-emerald-400 transition">
           <i data-lucide="mail" class="w-5 h-5"></i> Email
@@ -116,10 +89,9 @@
         </a>
       </div>
     </section>
-
     <!-- 🧠 Skills -->
     <section id="skills" class="bg-slate-800/50 p-6 rounded-2xl shadow-md" data-aos="fade-up">
-      <h2 class="text-2xl font-semibold mb-3 flex items-center gap-2"><i data-lucide="cpu"></i> Keterampilan</h2>
+      <h2 class="text-2xl font-semibold mb-3 flex items-center gap-2"><i data-lucide="cpu"></i> Keterampilan Khusus</h2>
       <div class="grid md:grid-cols-2 gap-6">
         <div>
           <h3 class="text-lg font-semibold text-emerald-400">Bahasa & Framework</h3>
@@ -142,22 +114,79 @@
       </div>
     </section>
 
-    <!-- 🖼️ Portfolio -->
+    <!-- 💼 Experience -->
+    <section id="experience" class="bg-slate-800/50 p-6 rounded-2xl shadow-md space-y-8" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold mb-3 flex items-center gap-2"><i data-lucide="briefcase"></i> Pengalaman Kerja</h2>
+
+      <article>
+        <h3 class="text-xl font-bold text-emerald-400">PT Prima Makmur Rotokemindo <span class="text-slate-400 text-sm">(Maret 2020 – Sekarang)</span></h3>
+        <p class="text-slate-300 mt-2">Sebagai <strong>Odoo Developer</strong> dan <strong>IT Programmer</strong>.</p>
+
+        <h4 class="mt-3 font-semibold">Project Odoo:</h4>
+        <ul class="list-disc ml-6 text-slate-300">
+          <li>PMR_GMS (Graphic Management System)</li>
+          <li>PMR Stock Taking</li>
+          <li>PMR FC (Forecast to PR)</li>
+          <li>PMR FGIS (Warehouse Dept)</li>
+          <li>PMR RMIS (Incoming Warehouse Dept)</li>
+        </ul>
+
+        <h4 class="mt-3 font-semibold">Project Desktop:</h4>
+        <ul class="list-disc ml-6 text-slate-300">
+          <li>RMIS (Raw Material Information System) – Delphi 11.3 + Firebird</li>
+          <li>GISPREPRESS – Delphi 11.3 + Firebird</li>
+          <li>Website Company Profile – PHP CI4 + MySQL</li>
+        </ul>
+
+        <h4 class="mt-3 font-semibold">IT Support Jobdesk:</h4>
+        <ul class="list-disc ml-6 text-slate-300">
+          <li>Instalasi, perawatan, dan perbaikan komputer serta jaringan</li>
+          <li>Konfigurasi Windows Server & Mail Server</li>
+          <li>Backup rutin, dokumentasi IT, dan maintenance infrastruktur</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3 class="text-xl font-bold text-emerald-400">PT BPR Kredit Mandiri Indonesia <span class="text-slate-400 text-sm">(Jul 2019 – Feb 2020)</span></h3>
+        <p class="text-slate-300">Sebagai <strong>IT Programmer</strong> — Support dan pengelolaan data aplikasi internal.</p>
+      </article>
+
+      <article>
+        <h3 class="text-xl font-bold text-emerald-400">PT Fortuna Mediatama <span class="text-slate-400 text-sm">(Des 2018 – Mei 2019)</span></h3>
+        <p class="text-slate-300">Sebagai <strong>Programmer / QA Implementasi Aplikasi</strong>.</p>
+        <ul class="list-disc ml-6 text-slate-300">
+          <li>Menyampaikan alur aplikasi ke client</li>
+          <li>Testing & dokumentasi aplikasi sebelum release</li>
+          <li>Membuat manual book dan laporan implementasi</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- 🧩 Projects -->
+    <section id="projects" class="bg-slate-800/50 p-6 rounded-2xl shadow-md" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold mb-3 flex items-center gap-2"><i data-lucide="layout-dashboard"></i> Aplikasi yang Pernah Dikembangkan</h2>
+      <ul class="list-disc ml-6 text-slate-300">
+        <li>Barcode Generator (Delphi 7 + SQL Server)</li>
+        <li>FGIS (Finish Good Information System)</li>
+        <li>Gudang App (PHP CI4 + MySQL)</li>
+        <li>Website Company Profile (PHP CI4 + MySQL)</li>
+        <li>Toko Duta Alat (Delphi XE2 + MySQL)</li>
+      </ul>
+    </section>
+
+    <!-- 🖼️ Portfolio Visual -->
     <section id="portfolio" class="bg-slate-800/50 p-6 rounded-2xl shadow-md" data-aos="zoom-in">
       <h2 class="text-2xl font-semibold mb-5 flex items-center gap-2"><i data-lucide="image"></i> Portofolio Visual</h2>
       <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-        <div class="rounded-xl overflow-hidden shadow-lg hover:scale-105 transform transition cursor-pointer"
-             onclick="openGallery(0)">
+        <div class="rounded-xl overflow-hidden shadow-lg hover:scale-105 transform transition cursor-pointer" onclick="openGallery(0)">
           <img src="img/modul_gms.jpg" class="w-full h-48 object-cover">
-          <div class="p-3 bg-slate-900/70 text-center">PMR GMS</div>
+          <div class="p-3 bg-slate-900/70 text-center">PMR_GMS</div>
         </div>
-        <div class="rounded-xl overflow-hidden shadow-lg hover:scale-105 transform transition cursor-pointer"
-             onclick="openGallery(1)">
+        <div class="rounded-xl overflow-hidden shadow-lg hover:scale-105 transform transition cursor-pointer" onclick="openGallery(1)">
           <img src="img/modul_stocktaking.jpg" class="w-full h-48 object-cover">
           <div class="p-3 bg-slate-900/70 text-center">PMR Stock Taking</div>
         </div>
-        <div class="rounded-xl overflow-hidden shadow-lg hover:scale-105 transform transition cursor-pointer"
-             onclick="openGallery(2)">
+        <div class="rounded-xl overflow-hidden shadow-lg hover:scale-105 transform transition cursor-pointer" onclick="openGallery(2)">
           <img src="img/modul_rmis.jpg" class="w-full h-48 object-cover">
           <div class="p-3 bg-slate-900/70 text-center">PMR RMIS</div>
         </div>
@@ -191,78 +220,51 @@
     </div>
   </div>
 
-  <!-- 🔹 Script -->
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
     lucide.createIcons();
     AOS.init({ duration: 1000, once: true, offset: 100 });
 
     const galleries = [
-      {
-        title: "PMR_GMS (Graphic Management System)",
-        desc: "Modul Odoo untuk manajemen produksi grafis, jadwal mesin, dan approval QC.",
-        images: ["img/modul_gms.jpg", "img/graphic_plant.jpg", "img/daily_time_sheet.jpg", "img/data_cyl_aktif.jpg", "img/cyl_base_order.jpg", "img/color_mactching.jpg", "img/certifiacate_of_analisis_cyl.jpg"]
-      },
-      {
-        title: "PMR Stock Taking",
-        desc: "Aplikasi stock opname terintegrasi Odoo dengan fitur barcode & analisa selisih.",
-        images: ["img/modul_stocktaking.jpg", "img/stock_taking.jpg"]
-      },
-      {
-        title: "PMR RMIS (Incoming Warehouse)",
-        desc: "Modul penerimaan bahan baku berbasis barcode dan tracking lot.",
-        images: ["img/modul_rmis.jpg", "img/.jpg"]
-      }
+      { title: "PMR_GMS (Graphic Management System)", desc: "Modul Odoo untuk manajemen produksi grafis, jadwal mesin, dan approval QC.", images: ["img/modul_gms.jpg", "img/graphic_plant.jpg", "img/daily_time_sheet.jpg"] },
+      { title: "PMR Stock Taking", desc: "Aplikasi stock opname terintegrasi Odoo dengan fitur barcode & analisa selisih.", images: ["img/modul_stocktaking.jpg", "img/stock_taking.jpg"] },
+      { title: "PMR RMIS (Incoming Warehouse)", desc: "Modul penerimaan bahan baku berbasis barcode dan tracking lot.", images: ["img/modul_rmis.jpg"] }
     ];
 
-    let currentGallery = 0;
-    let currentImageIndex = 0;
+    let currentGallery = 0, currentImageIndex = 0;
     const modal = document.getElementById('portfolioModal');
     const modalImg = document.getElementById('modalImg');
     const modalTitle = document.getElementById('modalTitle');
     const modalDesc = document.getElementById('modalDesc');
 
     function openGallery(index) {
-      currentGallery = index;
-      currentImageIndex = 0;
-      showImage();
-      modal.classList.add('active');
+      currentGallery = index; currentImageIndex = 0;
+      showImage(); modal.classList.add('active');
     }
-
     function showImage() {
-      const gallery = galleries[currentGallery];
-      modalImg.src = gallery.images[currentImageIndex];
-      modalTitle.textContent = gallery.title;
-      modalDesc.textContent = gallery.desc;
+      const g = galleries[currentGallery];
+      modalImg.src = g.images[currentImageIndex];
+      modalTitle.textContent = g.title;
+      modalDesc.textContent = g.desc;
     }
-
     function nextImage() {
-      const gallery = galleries[currentGallery];
-      currentImageIndex = (currentImageIndex + 1) % gallery.images.length;
+      const g = galleries[currentGallery];
+      currentImageIndex = (currentImageIndex + 1) % g.images.length;
       showImage();
     }
-
     function prevImage() {
-      const gallery = galleries[currentGallery];
-      currentImageIndex = (currentImageIndex - 1 + gallery.images.length) % gallery.images.length;
+      const g = galleries[currentGallery];
+      currentImageIndex = (currentImageIndex - 1 + g.images.length) % g.images.length;
       showImage();
     }
-
-    function closeModal() {
-      modal.classList.remove('active');
-    }
-
-    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-
-    document.addEventListener('keydown', (e) => {
-      if (modal.classList.contains('active')) {
-        if (e.key === 'ArrowRight') nextImage();
-        if (e.key === 'ArrowLeft') prevImage();
-        if (e.key === 'Escape') closeModal();
-      }
+    function closeModal() { modal.classList.remove('active'); }
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', e => {
+      if (!modal.classList.contains('active')) return;
+      if (e.key === 'ArrowRight') nextImage();
+      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'Escape') closeModal();
     });
   </script>
 </body>
 </html>
-
-
