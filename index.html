@@ -15,6 +15,7 @@
 
   <style>
     html { scroll-behavior: smooth; }
+
     /* Floating WhatsApp Button */
     .whatsapp-float {
       position: fixed; bottom: 25px; right: 25px;
@@ -74,7 +75,6 @@
         class="w-32 h-32 mx-auto rounded-full shadow-lg border-4 border-emerald-500 object-cover mb-4" />
       <h1 class="text-5xl font-bold">Ahmad Fauzi</h1>
       <p class="text-emerald-400 mt-2 text-lg font-medium">Odoo Developer — ERP Customization & System Integration</p>
-     <!-- 🔗 Contact & Social Links -->
       <div class="flex justify-center gap-4 mt-4 flex-wrap">
         <a href="mailto:fauzi93.af61@gmail.com" class="flex items-center gap-2 hover:text-emerald-400 transition">
           <i data-lucide="mail" class="w-5 h-5"></i> Email
@@ -89,6 +89,7 @@
         </a>
       </div>
     </section>
+
     <!-- 🧠 Skills -->
     <section id="skills" class="bg-slate-800/50 p-6 rounded-2xl shadow-md" data-aos="fade-up">
       <h2 class="text-2xl font-semibold mb-3 flex items-center gap-2"><i data-lucide="cpu"></i> Keterampilan Khusus</h2>
@@ -121,16 +122,15 @@
       <article>
         <h3 class="text-xl font-bold text-emerald-400">PT Prima Makmur Rotokemindo <span class="text-slate-400 text-sm">(Maret 2020 – Sekarang)</span></h3>
         <p class="text-slate-300 mt-2">Sebagai <strong>Odoo Developer</strong> dan <strong>IT Programmer</strong>.</p>
-
-        <h4 class="mt-3 font-semibold">Project Odoo:</h4>
-        <ul class="list-disc ml-6 text-slate-300">
+        <ul class="list-disc ml-6 text-slate-300 mt-2">
           <li>PMR_GMS (Graphic Management System)</li>
           <li>PMR Stock Taking</li>
           <li>PMR FC (Forecast to PR)</li>
-          <li>PMR FGIS (Warehouse Dept)</li>
-          <li>PMR RMIS (Incoming Warehouse Dept)</li>
+          <li>PMR FGIS</li>
+          <li>PMR RMIS</li>
         </ul>
-
+		
+      </article>
         <h4 class="mt-3 font-semibold">Project Desktop:</h4>
         <ul class="list-disc ml-6 text-slate-300">
           <li>RMIS (Raw Material Information System) – Delphi 11.3 + Firebird</li>
@@ -148,17 +148,12 @@
 
       <article>
         <h3 class="text-xl font-bold text-emerald-400">PT BPR Kredit Mandiri Indonesia <span class="text-slate-400 text-sm">(Jul 2019 – Feb 2020)</span></h3>
-        <p class="text-slate-300">Sebagai <strong>IT Programmer</strong> — Support dan pengelolaan data aplikasi internal.</p>
+        <p class="text-slate-300">Sebagai IT Programmer — Support dan pengelolaan data aplikasi internal.</p>
       </article>
 
       <article>
         <h3 class="text-xl font-bold text-emerald-400">PT Fortuna Mediatama <span class="text-slate-400 text-sm">(Des 2018 – Mei 2019)</span></h3>
-        <p class="text-slate-300">Sebagai <strong>Programmer / QA Implementasi Aplikasi</strong>.</p>
-        <ul class="list-disc ml-6 text-slate-300">
-          <li>Menyampaikan alur aplikasi ke client</li>
-          <li>Testing & dokumentasi aplikasi sebelum release</li>
-          <li>Membuat manual book dan laporan implementasi</li>
-        </ul>
+        <p class="text-slate-300">Sebagai Programmer / QA Implementasi Aplikasi.</p>
       </article>
     </section>
 
@@ -167,8 +162,7 @@
       <h2 class="text-2xl font-semibold mb-3 flex items-center gap-2"><i data-lucide="layout-dashboard"></i> Aplikasi yang Pernah Dikembangkan</h2>
       <ul class="list-disc ml-6 text-slate-300">
         <li>Barcode Generator (Delphi 7 + SQL Server)</li>
-        <li>FGIS (Finish Good Information System)</li>
-        <li>Gudang App (PHP CI4 + MySQL)</li>
+        <li>FGIS (Finish Good Information System Delphi 7 + SQL Server)</li>
         <li>Website Company Profile (PHP CI4 + MySQL)</li>
         <li>Toko Duta Alat (Delphi XE2 + MySQL)</li>
       </ul>
@@ -177,20 +171,7 @@
     <!-- 🖼️ Portfolio Visual -->
     <section id="portfolio" class="bg-slate-800/50 p-6 rounded-2xl shadow-md" data-aos="zoom-in">
       <h2 class="text-2xl font-semibold mb-5 flex items-center gap-2"><i data-lucide="image"></i> Portofolio Visual</h2>
-      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-        <div class="rounded-xl overflow-hidden shadow-lg hover:scale-105 transform transition cursor-pointer" onclick="openGallery(0)">
-          <img src="img/modul_gms.jpg" class="w-full h-48 object-cover">
-          <div class="p-3 bg-slate-900/70 text-center">PMR_GMS</div>
-        </div>
-        <div class="rounded-xl overflow-hidden shadow-lg hover:scale-105 transform transition cursor-pointer" onclick="openGallery(1)">
-          <img src="img/modul_stocktaking.jpg" class="w-full h-48 object-cover">
-          <div class="p-3 bg-slate-900/70 text-center">PMR Stock Taking</div>
-        </div>
-        <div class="rounded-xl overflow-hidden shadow-lg hover:scale-105 transform transition cursor-pointer" onclick="openGallery(2)">
-          <img src="img/modul_rmis.jpg" class="w-full h-48 object-cover">
-          <div class="p-3 bg-slate-900/70 text-center">PMR RMIS</div>
-        </div>
-      </div>
+      <div id="portfolioGrid" class="grid sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
     </section>
 
     <footer class="text-center text-slate-500 border-t border-slate-700 pt-6 mt-6 text-sm" data-aos="fade-up">
@@ -225,11 +206,28 @@
     lucide.createIcons();
     AOS.init({ duration: 1000, once: true, offset: 100 });
 
+    // ✅ Data galeri otomatis
     const galleries = [
       { title: "PMR_GMS (Graphic Management System)", desc: "Modul Odoo untuk manajemen produksi grafis, jadwal mesin, dan approval QC.", images: ["img/modul_gms.jpg", "img/graphic_plant.jpg", "img/daily_time_sheet.jpg"] },
       { title: "PMR Stock Taking", desc: "Aplikasi stock opname terintegrasi Odoo dengan fitur barcode & analisa selisih.", images: ["img/modul_stocktaking.jpg", "img/stock_taking.jpg"] },
-      { title: "PMR RMIS (Incoming Warehouse)", desc: "Modul penerimaan bahan baku berbasis barcode dan tracking lot.", images: ["img/modul_rmis.jpg"] }
+      { title: "PMR RMIS (Incoming Warehouse)", desc: "Modul penerimaan bahan baku berbasis barcode dan tracking lot.", images: ["img/modul_rmis.jpg"] },
+      { title: "PMR FC (Forecast to PR)", desc: "Modul proses memperkirakan permintaan produk di masa mendatang untuk memandu perencanaan produksi, alokasi sumber daya, dan manajemen inventaris.", images: ["img/modul_fc.jpg"] }
     ];
+
+    // ✅ Generate otomatis isi portfolioGrid
+    const portfolioGrid = document.getElementById("portfolioGrid");
+    galleries.forEach((g, i) => {
+      const card = document.createElement("div");
+      card.className = "rounded-xl overflow-hidden shadow-lg hover:scale-105 transform transition cursor-pointer bg-slate-900/70";
+      card.onclick = () => openGallery(i);
+      card.innerHTML = `
+        <img src="${g.images[0]}" class="w-full h-48 object-cover">
+        <div class="p-3 text-center">
+          <div class="font-semibold text-emerald-400">${g.title}</div>
+          <div class="text-slate-300 text-sm mt-1">${g.desc}</div>
+        </div>`;
+      portfolioGrid.appendChild(card);
+    });
 
     let currentGallery = 0, currentImageIndex = 0;
     const modal = document.getElementById('portfolioModal');
